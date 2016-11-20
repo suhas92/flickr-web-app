@@ -1,217 +1,153 @@
-@import url(http://fonts.googleapis.com/css?family=Titillium+Web:900|Roboto:400,100);
-
-body { background-color: #fff; padding: 20px;
-	top:0;
-	left:0;
-	margin: 0;
-	padding: 0;
-	height: 100vh;
-	}
-
-#myQuiz {
-   font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: 400;
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #0063DC;
 }
+
+body { background-color: white; padding: 20px;
+    top:0;
+    left:0;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
 a{
-	text-decoration: none;
-	color: black;
-	
+    text-decoration: none;
+    color: black;
+
 }
 a :hover{
-	text-decoration: none;
-	color:#ffffff;
-	font-weight: 500;
-	
+    text-decoration: none;
+    color:#ffffff;
+    font-weight: 500;
+
 }
 fa-database:hover {
-	color:white !important;
+    color:white !important;
 }
 .nav{
-	top: 0;width: auto;
-	height: 80px;
-	background-color: #3586d0;
-	position: relative;
-	overflow: hidden;
-	max-width: 100%;
+    top: 0;
+    max-height: 80px;
+    height: auto;
+    background-color: #dcdcdc;
+    position: fixed;
+    overflow: hidden;
+    max-width: 100%;
+    z-index: 3;
 }
 
 .nav .search{
-	width: 500px;
-	left: 0px;
-	height: 100%;
-	display: block;
-	float: left;
-	padding-left: 30px;
-	padding-top: 15px;
-	background-color: #295680;
-	position: relative; 
+    width: 500px;
+    left: 0px;
+    height: 100%;
+    display: block;
+    float: left;
+    padding-left: 30px;
+    padding-top: 15px;
+    background-color: #0063DC;
+    position: relative;
 }
 .nav .search-open{
-	width: 500px;
-	left: 0px;
-	height: 100%;
-	display: none;
-	float: left;
-	padding-left: 30px;
-	padding-top: 23px;
-	background-color: #295680;
-	position: relative; 
+    width: 500px;
+    left: 0px;
+    height: 100%;
+    display: none;
+    float: left;
+    padding-left: 30px;
+    padding-top: 23px;
+    background-color: #295680;
+    position: relative;
 }
 .nav .search-open .i {
-	position: absolute;display: inline-block;
-	padding-top:22px;
-	margin-left:5px;
-	color: white;
-	
-	
+    position: absolute;display: inline-block;
+    padding-top:22px;
+    margin-left:5px;
+    color: white;
+
+
 }
-.nav .search-open input[type=text]{
-	 background-color:rgba(0, 0, 0, 0);
-    color:white;
-    border: none;
+.nav input[type=text]{
+     background-color:rgba(0, 0, 0, 0);
+     border: none;
+    border-bottom: 1px solid #FC329B;
     outline:none;
     height:30px;
-    width: 300px;
-    transition:height 1s;
-    -webkit-transition:height 1s;
-    padding-left: 15px;
-	bottom: 25px;
-	font-size: 1.6em;
-	font-weight: 100;
-	font-family: 'Roboto', sans-serif;
-    
-    
+    width: 27%;
+    float: right;
+    margin: 1% 9%;
+    font-size: 1.4em;
+    font-weight: 100;
+    border-image: repeating-linear-gradient( 45deg, #FC329B, #FC329B 1%, #0063DC 1%, #0063DC 8%) 10;
+
     }
+
 .nav .search-open h1 {
-	position: absolute;
-	display: inline-block;
-	float: left;
-	color: white;
-	padding-left: 15px;
-	bottom: 25px;
-	font-size: 1.6em;
-	font-weight: 100;
-	font-family: 'Roboto', sans-serif;
-	
+    position: absolute;
+    display: inline-block;
+    float: left;
+    color: white;
+    padding-left: 15px;
+    bottom: 25px;
+    font-size: 1.6em;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif;
 }
+
 .nav .search .i {
-	position: absolute;display: inline-block;
-	top:5px;
-	margin-left:5px;
-	color: white;
-	
+    position: absolute;display: inline-block;
+    top:5px;
+    margin-left:5px;
+    color: white;
+
 }
 .nav .search h1 {
-	position: absolute;
-	display: inline-block;
-	float: left;
-	color: white;
-	padding-left: 15px;
-	bottom: 25px;
-	font-size: 1.6em;
-	font-weight: 100;
-	font-family: 'Roboto', sans-serif; font-size: 1.5em; font-weight: 100;
-	
+    position: absolute;
+    display: inline-block;
+    float: left;
+    color: white;
+    padding-left: 15px;
+    bottom: 25px;
+    font-size: 1.6em;
+    font-weight: 100;
+    font-family: 'Roboto', sans-serif; font-size: 1.5em; font-weight: 100;
+
 }
 .nav .search input{
-	position: relative;display: none;
-	top:5px;
-	margin-left:5px;
+    position: relative;display: none;
+    top:5px;
+    margin-left:5px;
 }
 .nav .search .btn-menu {
-	cursor: pointer;
-	position: static ;
-	display: inline;
-	width: inherit;
-	 
+    cursor: pointer;
+    position: static ;
+    display: inline;
+    width: inherit;
+
 }
 .nav .nav-icons {
-	position: absolute;
-	display: inline-block;
-	float: right;
-	right: 30px;
-	padding-top: 25px;
+    position: absolute;
+    display: inline-block;
+    float: right;
+    right: 30px;
+    padding-top: 25px;
 
 }
 .nav .nav-icons i {
-	padding-left: 40px;
-	padding-right: 40px;
-	
-	
+    padding-left: 40px;
+    padding-right: 40px;
+
+
 }
 .nav .nav-icons i:hover {
-	color: rgba(255, 255, 255, 0.68);
-	opacity: 0.5;
-	
+    color: rgba(255, 255, 255, 0.68);
+    opacity: 0.5;
+
 }
 .nav img {
-	margin-top: 15px;
-	width: 10%;
-	position: absolute;
-	text-align: center;
-	display: inline-block;
-	padding-left: 100px;
-	
-}
-
-.section{
-	padding-top: 25px;
-	overflow: scroll;
-	height:inherit;
-	width: 530px;
-	left: -530px;
-	top:-20px;
-	background-color: #c7c7c7;
-	display: block;
-	position: relative;
-	    -webkit-transition: ease-in 0.5s;
-    -moz-transition: ease-in 0.5s;
-    -o-transition: ease-in 0.5s;
-    transition: ease-in 0.5s;
-}
-.wrapper{
-	top: 0;width: auto;
-	height: 90vh;
-	background-color: #f0f0f0;
-	position: relative;
-	overflow: hidden;
-	max-width: 100%;
-	 -webkit-transition: linear 0.5s;
-    -moz-transition: linear 0.5s;
-    -o-transition: linear 0.5s;
-    transition: linear 0.5s;
-
-	visibility: hidden;
-	
-	
-}
-
-li.items.ng-scope img {
-	width: 10%;
-	display: inline-block; 
-	padding-top: 20px;
-	margin-top: 10px;
-	position: absolute;
-}
-li.items.ng-scope h3 {
-	
-	display: inline-block; 
-	padding-left: 71px;
-	padding-top: 23px;
-	position: relative;
-	font-weight: 100;
-	font-size: 1.4em;
-	font-family: 'Roboto', sans-serif;
-}
-
-
-li.items-inside.ng-scope h4 {
-	
-
-	font-weight: 100;
-	font-size: 1em;
-	font-family: 'Roboto', sans-serif;
-	display: inline-flex;
-	padding-left:5px;
+    margin: 10px 0px 10px 6%;
+    max-width: 10%;
 }
 
 
@@ -219,7 +155,7 @@ li.items-inside.ng-scope h4 {
     .nav .nav-icons {
         display: none !important;
     }
-    
+
 }
 
 .highlightedText {
@@ -246,25 +182,66 @@ div.record-highlight {
     color: #fff;
 }
 .frame {
-	
-	position: fixed;
-	height: 80vh;
-	width: 80vw; 
-	
-	
+
+    position: fixed;
+    height: 80vh;
+    width: 80vw;
+
+
 }
 object.switcher {
-	position: relative; 
-	height:90%;
-	width:100%;
-	display: inline;
-	left: 100px;
-	top:80px; 
-	
-	
-	
-	}
+    position: relative;
+    height:90%;
+    width:100%;
+    display: inline;
+    left: 100px;
+    top:80px;
+
+
+
+    }
 div.hide.ng-binding {
-	display: none!important;
-	visibility: hidden!important;
+    display: none!important;
+    visibility: hidden!important;
+}
+
+.allimages {
+    display: inline;
+    width: 100%;
+    float: left;
+    padding-left: 5%;
+    margin-top: 10%;
+    z-index: -3;
+}
+.image-block {
+    transition: all linear 0.5s;
+    color: black;
+    width: 27%;
+    min-height: 400px;
+    max-height: 300px;
+    overflow: hidden;
+    float: left;
+    margin: 8px;
+    border: 1px solid #FC329B;
+    border-radius: 10px;
+    border-image: repeating-linear-gradient( 45deg, #FC329B, #FC329B 1%, #0063DC 1%, #0063DC 8%) 10;
+
+}
+.image {
+    width: 65%;
+}
+.image img {
+    width: inherit;
+    height: auto;
+    display: block;
+    margin: 24% 24% 24% 40%;
+}
+
+.image-content {
+    padding-left: 5px;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 100;
+    margin-top: 50px;
 }

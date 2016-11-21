@@ -164,7 +164,7 @@ div.hide.ng-binding {
 
 .allimages {
     display: inline;
-    width: 100%;
+    width: auto;
     float: left;
     padding-left: 5%;
     margin-top: 10%;
@@ -173,7 +173,7 @@ div.hide.ng-binding {
 .image-block {
     background-color: black;
     color: white;
-    width: 27%;
+    width: 29%;
     min-height: 400px;
     max-height: 300px;
     overflow: hidden;
@@ -246,3 +246,18 @@ image-block:hover {
     background-color: #0063DC;
     color: #FC329B;
 }
+
+@media only screen and (max-device-width: 1024px) {
+
+      .image-block {
+          width: 44%;
+      }
+}
+
+@media only screen and (max-device-width: 666px) {
+
+      .image-block {
+          width: 90%;
+      }
+}
+

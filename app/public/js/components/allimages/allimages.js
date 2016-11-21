@@ -11,8 +11,6 @@
     },
     controller: class AllImagesComponent {
         constructor ($scope, $http) {
-
-        console.log('data');
         const options = {
             url: '/getImages',
             method: 'GET',
@@ -31,40 +29,18 @@
             });
         }
 
-        getText () {
+        // Getter Method
+        get getText () {
             return this.searchText;
-            // return (item) => {
-            //     if (this.searchText === undefined) {
-            //         return true;
-            //     }
-            //     console.log('>><<', item.title.toLowerCase().includes(this.searchText));
-            //     return item.title.toLowerCase().includes(this.searchText);
-            // }
         }
 
-        
-
-        // get filterImages () {
-        //     if (this.searchText === '')
-        //         return;
-        //     console.log(this.searchText);
-        //     return function (item) {
-        //         return item.title.includes(this.searchText);
-        //     }
-        // }
+        // TODO: This needs to be completed for AOS css
+        filterMethod () {
+            if (this.searchText === '')
+                return this.imageJSON.photos.photo;
+            return
+        }
     }
 
-});
-
-app.filter('highlightWord', function() {
-    return function(text, selectedWord) {
-      if(selectedWord) {
-        var pattern = new RegExp(selectedWord, "g");
-        return text.replace(pattern, '<span class="highlighted">' + selectedWord + '</span>');
-      }
-      else {
-        return text;
-      }
-    };
 });
 })();

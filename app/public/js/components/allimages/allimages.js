@@ -7,10 +7,11 @@
     templateUrl: '/js/components/allimages/allimages.html',
     controllerAs: 'ctrl',
     bindings: {
-      searchText: '<'
+      searchText: '='
     },
     controller: class AllImagesComponent {
         constructor ($scope, $http) {
+
         console.log('data');
         const options = {
             url: '/getImages',
@@ -30,9 +31,40 @@
             });
         }
 
-        get getText () {
+        getText () {
             return this.searchText;
+            // return (item) => {
+            //     if (this.searchText === undefined) {
+            //         return true;
+            //     }
+            //     console.log('>><<', item.title.toLowerCase().includes(this.searchText));
+            //     return item.title.toLowerCase().includes(this.searchText);
+            // }
         }
+
+        
+
+        // get filterImages () {
+        //     if (this.searchText === '')
+        //         return;
+        //     console.log(this.searchText);
+        //     return function (item) {
+        //         return item.title.includes(this.searchText);
+        //     }
+        // }
     }
+
+});
+
+app.filter('highlightWord', function() {
+    return function(text, selectedWord) {
+      if(selectedWord) {
+        var pattern = new RegExp(selectedWord, "g");
+        return text.replace(pattern, '<span class="highlighted">' + selectedWord + '</span>');
+      }
+      else {
+        return text;
+      }
+    };
 });
 })();

@@ -13,7 +13,6 @@
     controller: class NavBarComponent {
         constructor () {
             this.searchChange = (searchText) => {
-                console.log('lll', searchText);
                 this.searchText = searchText;
                 this.onSearchChange({$event: {search: searchText}});
             }

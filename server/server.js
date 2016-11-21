@@ -25,5 +25,5 @@ model(app);
 
 app.listen(port);
 
-console.log('>>');
+console.log('Listening on localhost:', port);
 export default app;

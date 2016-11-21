@@ -2,31 +2,18 @@
   color: #0063DC;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 body { background-color: white; padding: 20px;
     top:0;
     left:0;
     margin: 0;
     padding: 0;
-    height: 100vh;
-    }
-    ::-webkit-scrollbar {
-        display: none;
-    }
-
-a{
-    text-decoration: none;
-    color: black;
-
+    height: auto;
 }
-a :hover{
-    text-decoration: none;
-    color:#ffffff;
-    font-weight: 500;
 
-}
-fa-database:hover {
-    color:white !important;
-}
 .nav{
     top: 0;
     max-height: 80px;
@@ -38,39 +25,9 @@ fa-database:hover {
     z-index: 3;
 }
 
-.nav .search{
-    width: 500px;
-    left: 0px;
-    height: 100%;
-    display: block;
-    float: left;
-    padding-left: 30px;
-    padding-top: 15px;
-    background-color: #0063DC;
-    position: relative;
-}
-.nav .search-open{
-    width: 500px;
-    left: 0px;
-    height: 100%;
-    display: none;
-    float: left;
-    padding-left: 30px;
-    padding-top: 23px;
-    background-color: #295680;
-    position: relative;
-}
-.nav .search-open .i {
-    position: absolute;display: inline-block;
-    padding-top:22px;
-    margin-left:5px;
-    color: white;
-
-
-}
 .nav input[type=text]{
-     background-color:rgba(0, 0, 0, 0);
-     border: none;
+    background-color:rgba(0, 0, 0, 0);
+    border: none;
     border-bottom: 1px solid #FC329B;
     outline:none;
     height:30px;
@@ -214,22 +171,61 @@ div.hide.ng-binding {
     z-index: -3;
 }
 .image-block {
-    transition: all linear 0.5s;
-    color: black;
+    background-color: black;
+    color: white;
     width: 27%;
     min-height: 400px;
     max-height: 300px;
     overflow: hidden;
     float: left;
     margin: 8px;
-    border: 1px solid #FC329B;
-    border-radius: 10px;
+    border: 5px solid #FC329B;
     border-image: repeating-linear-gradient( 45deg, #FC329B, #FC329B 1%, #0063DC 1%, #0063DC 8%) 10;
+}
 
+image-block:hover {
+    border: none;
+    border-image: none;
+    background-color: black;
+}
+
+.image-block:hover .image {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    vertical-align: middle;
+    display: inline-flex;
+    transition-timing-function: ease-in-out;
+    transition-duration: 500ms;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.image-block:hover .image img{
+    margin: auto;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.image-block:hover .image-content {
+    display: none;
+}
+
+.image-block .image-label {
+    display: none;
+}
+
+.image-block:hover .image-label {
+    position: relative;
+    color: white;
 }
 .image {
     width: 65%;
 }
+
 .image img {
     width: inherit;
     height: auto;
@@ -244,4 +240,9 @@ div.hide.ng-binding {
     font-size: 20px;
     font-weight: 100;
     margin-top: 50px;
+}
+
+.highlighted {
+    background-color: #0063DC;
+    color: #FC329B;
 }

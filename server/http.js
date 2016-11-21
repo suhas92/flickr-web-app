@@ -21,7 +21,6 @@ function httpClient (options, callback, res) {
     // Make http request.
     let query = new Promise((resolve, reject) => {
         request(_options, (error, response, body) => {
-            console.log(body);
             if (callback) {
                 callback(error, response, response.body);
             }

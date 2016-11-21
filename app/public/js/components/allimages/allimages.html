@@ -1,16 +1,15 @@
 <div>
     <div class="allimages">
-        <div class="image-block" data-ng-repeat="image in ctrl.imageJSON.photos.photo | filter: ctrl.getText"
+        <div class="image-block animated jello"
+            data-ng-repeat="image in ctrl.imageJSON.photos.photo | filter: ctrl.getText()"
             layout="column"
-            layout-align="end center"
-            data-aos="{{ $even ? 'fade-left' : 'fade-up'}}"
-            data-aos-duration="1000"
-            data-aos-easing="linear">
+            layout-align="end center">
             <div class="image-content">
-                <span>{{ image.title }}</span>
+                {{ image.title }}
             </div>
-            <div class="image" >
-                <img src="https://farm{{ image.farm }}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg"></img>
+            <div class="image" id="inner">
+                <img src="https://farm{{ image.farm }}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg">
+                </img>
             </div>
         </div>
     </div>

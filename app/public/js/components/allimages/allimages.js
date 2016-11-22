@@ -34,11 +34,28 @@
             return this.searchText;
         }
 
-        // TODO: This needs to be completed for AOS css
-        filterMethod () {
-            if (this.searchText === '')
-                return this.imageJSON.photos.photo;
-            return
+        /**
+         * Opens a Single Image View
+         */
+        openImage (image) {
+            console.log(image.title);
+            this.singleImage = { 
+                display: 'block'
+            };
+            this.allImages = {
+                position: 'fixed'
+            };
+            this.mainImage = image;
+        }
+
+        closeImage () {
+            this.singleImage = {
+                display: 'none'
+            };
+            this.allImages = {
+                position: 'initial'
+            };
+            this.mainImage = null;
         }
     }
 

@@ -1,17 +1,25 @@
 <div>
-    <div class="allimages">
-
+    <div class="allimages" ng-style="ctrl.allImages">
         <div class="image-block"
             data-ng-repeat="image in  ctrl.imageJSON.photos.photo | filter: {title: ctrl.getText}"
             layout="column"
-            layout-align="end center">
-
+            layout-align="end center"
+            data-ng-click="ctrl.openImage(image)">
+            
             <div class="image-content">
                 {{ image.title }}
             </div>
             <div class="image" id="inner">
                 <img src="https://farm{{ image.farm }}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg"></img>
             </div>
+        </div>
+    </div>
+    <div class="single-image animated bounceInUp" ng-style="ctrl.singleImage">
+        <div class="close-container" data-ng-click="ctrl.closeImage()">X</div>
+
+        <div class="main-image">
+            <img src="https://farm{{ ctrl.mainImage.farm }}.staticflickr.com/{{ctrl.mainImage.server}}/{{ctrl.mainImage.id}}_{{ctrl.mainImage.secret}}.jpg"></img>
+            <div>{{ ctrl.mainImage.title }}</div>
         </div>
     </div>
 </div>

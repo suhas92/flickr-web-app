@@ -28,7 +28,7 @@ class Route {
 
         return httpClient(httpOptions, null, res)
             .then((data) => res.send(data))
-            .catch((err) => res.render('error', { error: err }));
+            .catch((err) => reject(err));
     }
 }
 

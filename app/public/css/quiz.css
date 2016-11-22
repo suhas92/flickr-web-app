@@ -213,6 +213,9 @@ body {
         font-size: 14px;
         font-weight: lighter;
         height: 21px;
+        border: none !important;
+        border-bottom: 1px solid #FC329B !important;
+        outline:none !important;
     }
 }
 

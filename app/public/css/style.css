@@ -57,7 +57,8 @@ body {
 
 }
 
-.perPage {
+.perPage, .noImages {
+    color: #8e8e8e;
     height: 50px;
     width: auto;
     margin: 80px;
@@ -69,6 +70,9 @@ body {
     float: right;
 }
 
+.perPage select {
+    margin-right: 20px;
+}
 .allimages {
     display: inline;
     width: auto;
@@ -202,8 +206,7 @@ body {
 }
 
 .highlighted {
-    background-color: #0063DC;
-    color: #FC329B;
+    color: #0063DC;
 }
 
 @media screen and (max-device-width: 1024px) {

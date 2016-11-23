@@ -1,24 +1,27 @@
 <div>
-    <div class="perPage">
+    <div class="perPage" ng-show="!ctrl.pending">
         Images Per Page
-        <select>
-            <option>10</option>
-            <option>50</option>
-            <option>100</option>
-            <option>500</option>
+        <select data-ng-model="ctrl.perPage" data-ng-change="ctrl.changePage()">
+            <option value="10" selected="selected">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="500">500</option>
         </select>
+        Page {{ ctrl.page }} of {{ ctrl.totalPages }} Pages
         <div class="nav-btns">
-            <input type="button" value="Previous Page"></input>
-            <input type="button" value="Next Page"></input>
+            <input type="button" data-ng-click="ctrl.firstPage()" data-ng-if="ctrl.page !== 1" value="<<"></input>
+            <input type="button" data-ng-click="ctrl.prevPage()" data-ng-if="ctrl.page !== 1" value="<"></input>
+            <input type="button" data-ng-click="ctrl.nextPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">"></input>
+            <input type="button" data-ng-click="ctrl.lastPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">>"></input>
         </div>
     </div>
 
     <div class="allimages" ng-style="ctrl.allImages">
-        <div class="loader" ng-style="{'display': ctrl.hidden}">
+        <div class="loader" data-ng-show="ctrl.pending">
             <img id="loader" src="images/triangle.gif"></img>
         </div>
         <div class="image-block animated fadeIn"
-            data-ng-repeat="image in  ctrl.imageJSON.photos.photo | filter: {title: ctrl.getText}"
+            data-ng-repeat="image in photos=(ctrl.imageJSON.photos.photo | filter: {title: ctrl.getText})"
             layout="column"
             layout-align="end center"
             data-ng-click="ctrl.openImage(image)">
@@ -31,6 +34,11 @@
             </div>
         </div>
     </div>
+
+    <div class="noImages" data-ng-show="!photos.length && !ctrl.pending">
+        No Images with the title <span class="highlighted">{{ ctrl.getText }}</span> on this page
+    </div>
+
     <div class="single-image animated" data-ng-class="{bounceInUp: ctrl.bounceInUp, bounceOutDown: ctrl.bounceOutDown}" ng-style="ctrl.singleImage">
         <div class="close-container" data-ng-click="ctrl.closeImage()">X</div>
 

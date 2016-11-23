@@ -1,6 +1,23 @@
 <div>
+    <div class="perPage">
+        Images Per Page
+        <select>
+            <option>10</option>
+            <option>50</option>
+            <option>100</option>
+            <option>500</option>
+        </select>
+        <div class="nav-btns">
+            <input type="button" value="Previous Page"></input>
+            <input type="button" value="Next Page"></input>
+        </div>
+    </div>
+
     <div class="allimages" ng-style="ctrl.allImages">
-        <div class="image-block"
+        <div class="loader" ng-style="{'display': ctrl.hidden}">
+            <img id="loader" src="images/triangle.gif"></img>
+        </div>
+        <div class="image-block animated fadeIn"
             data-ng-repeat="image in  ctrl.imageJSON.photos.photo | filter: {title: ctrl.getText}"
             layout="column"
             layout-align="end center"
@@ -14,7 +31,7 @@
             </div>
         </div>
     </div>
-    <div class="single-image animated bounceInUp" ng-style="ctrl.singleImage">
+    <div class="single-image animated" data-ng-class="{bounceInUp: ctrl.bounceInUp, bounceOutDown: ctrl.bounceOutDown}" ng-style="ctrl.singleImage">
         <div class="close-container" data-ng-click="ctrl.closeImage()">X</div>
 
         <div class="main-image">

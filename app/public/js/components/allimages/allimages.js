@@ -26,8 +26,7 @@
                     format: 'json',
                     nojsoncallback: 1,
                     per_page: this.perPage,
-                    page: this.page,
-                    extras: 'description, license, date_upload, date_taken, owner_name, icon_server, original_format, last_update, geo, tags, machine_tags, o_dims, views, media, path_alias, url_sq, url_t, url_s, url_q, url_m, url_n, url_z, url_c, url_l, url_o'
+                    page: this.page
                 }
             };
             _http(options)
@@ -57,10 +56,10 @@
             this.bounceOutDown = null;
             this.bounceInUp = true
             console.log(image.title);
+            this.getImageSizes();
             this.singleImage = { 
                 display: 'block'
             };
-            ;
         }
         /**
          * Closes the Single Image View
@@ -127,6 +126,26 @@
                     this.totalPages = this.imageJSON.photos.pages;
 
                 })
+        }
+
+        /**
+         * 
+         */
+        getImageSizes () {
+            let infoOptions = {
+                url: '/getImageSizes',
+                method: 'GET',
+                params: {
+                    format: 'json',
+                    nojsoncallback: 1,
+                    photo_id: this.mainImage.id
+                }
+            }    
+            _http(infoOptions)
+                .then((res) => {
+                    this.mainImageInfo = res.data;
+                })
+            
         }
     }   
 });

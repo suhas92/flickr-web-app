@@ -11,6 +11,15 @@ div
     transition: all 0.5s ease;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+a:hover {
+    color: #0063DC;
+}
 body { 
     background-color: white; padding: 20px;
     top:0;
@@ -113,18 +122,20 @@ body {
     float: right;
 }
 .main-image {
-    margin: auto;
+    overflow-y: scroll;
+    height: 100%;
+    margin-left: 5%;
     vertical-align: middle;
+    font-size: small;
 }
 .main-image img {
     margin: auto;
     clear: both;
-    display: block;
     width: auto;
     height: auto;
 }
 
-.main-image div {
+.main-image + div {
     margin: auto;
     padding-top: 20px;
     width: 100%;
@@ -136,6 +147,17 @@ body {
     position: fixed;
 }
 
+.main-image .sizes {
+    position: relative;
+    padding: 0.5% 0;
+}
+
+.main-image .image-info {
+    width: 50%;
+    z-index: 3;
+    display: block;
+    float: right;
+}
 .image-block {
     background-color: white;
     color: #8e8e8e;
@@ -214,11 +236,17 @@ body {
       .image-block {
           width: 44%;
       }
+
+    .main-image .image-info {
+        float: none;
+    }
+
 }
 
 @media screen and (max-device-width: 666px) {
     .image-content {
         height: 50px;
+        font-size: 0.6em;
     }
 
     .image-block {
@@ -243,6 +271,24 @@ body {
         border-bottom: 1px solid #FC329B !important;
         outline:none !important;
     }
+
+    .main-image .image-info {
+        float: none;
+        font-size: 0.8em;
+    }
+
+    .main-image img {
+        width: 100%;
+    }
+
+    .perPage, .noImages {
+        font-size: 0.5em;
+        height: 0px;
+        margin: 0 5%;
+        margin-top: 12%;
+        margin-bottom: 7px;
+        }
+
 }
 
 

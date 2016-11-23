@@ -43,8 +43,17 @@
         <div class="close-container" data-ng-click="ctrl.closeImage()">X</div>
 
         <div class="main-image">
+            <div class="image-content">{{ ctrl.mainImage.title }}</div>
+
             <img src="https://farm{{ ctrl.mainImage.farm }}.staticflickr.com/{{ctrl.mainImage.server}}/{{ctrl.mainImage.id}}_{{ctrl.mainImage.secret}}.jpg"></img>
-            <div>{{ ctrl.mainImage.title }}</div>
+            <div class="image-info">
+                <div class="sizes" data-ng-repeat="size in ctrl.mainImageInfo.sizes.size">
+                    <div><em>Label:&nbsp;</em>{{ size.label }}</div>
+                    <div><em>Dimensions:&nbsp;</em>{{ size.height }}&nbsp;X&nbsp;{{ size.height }}</div>
+                    <div><em>Source:&nbsp;</em><a href="{{ size.url }}" target="_blank">{{ size.url }}</a></div>
+                    <a href="{{ size.source }}" download target="_blank"><em>Download</em></a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

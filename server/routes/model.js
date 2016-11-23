@@ -5,6 +5,7 @@ function model(app) {
   'use strict';
 
   app.route('/getImages').get(Route.getImages);
+  app.route('/getImageSizes').get(Route.getImageSizes);
 
 }
 

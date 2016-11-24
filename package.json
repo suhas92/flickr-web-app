@@ -25,6 +25,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "jscs": "^2.4.0",
     "material-design-lite": "^1.2.1",
+    "moment": "^2.17.0",
     "request": "^2.79.0"
   },
   "repository": {

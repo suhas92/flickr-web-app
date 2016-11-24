@@ -1,5 +1,10 @@
 <header class="nav" layou="row">
 
     <img class="logo" src="images/logo.png"></img>
-    <input type="text" placeholder="Search..." data-ng-model="$ctrl.searchText" data-ng-change="$ctrl.searchChange($ctrl.searchText)"></input>
+    <form ng-submit="$ctrl.searchChange($ctrl.searchText)">
+        <input type="text" placeholder="Search..." data-ng-model="$ctrl.searchText"></input>
+        <input ng-hide="{true}"type="submit" value="search"/>
+            <div class="clear-search" data-ng-click="$ctrl.searchChange('')" data-ng-if="$ctrl.searchText">X</div>
+
+    </form>
 </header>

@@ -1,6 +1,5 @@
 (function(){
   'use strict';
-
   var app = angular.module('app');
   let _http = new WeakMap();
   let options = new WeakMap();
@@ -10,15 +9,34 @@
     templateUrl: '/js/components/allimages/allimages.html',
     controllerAs: 'ctrl',
     bindings: {
-      searchText: '='
+      searchText: '<',
+      onChange: '&'
     },
     controller: class AllImagesComponent {
         constructor ($scope, $http) {
             _http = $http;
             this.perPage = '10';
             this.page = '1';
-            this.pending = true;
 
+            this.$onChanges = function (changesObj) {
+                console.log(changesObj)
+                this.pending = true;
+                if (changesObj.searchText.currentValue) {
+                    this.searchText = changesObj.searchText.currentValue;
+                    this.searchImage();
+                } else {
+                    this.getAll();
+                }
+            };
+
+        }
+
+        /**
+         * Get all Images
+         */
+        getAll () {
+            this.imageJSON = [];
+            this.pending = true;
             options = {
                 url: '/getImages',
                 method: 'GET',
@@ -26,7 +44,8 @@
                     format: 'json',
                     nojsoncallback: 1,
                     per_page: this.perPage,
-                    page: this.page
+                    page: this.page,
+                    extras: `description,date_upload,owner_name`
                 }
             };
             _http(options)
@@ -42,10 +61,33 @@
         }
 
         /**
-         * Getter Method
+         * Search Image
          */
-        get getText () {
-            return this.searchText;
+
+        searchImage () {
+            this.imageJSON = [];
+            this.pending = true;
+            let searchOptions = {
+                url: `/getImages/searchText`,
+                method: 'GET',
+                params: {
+                    format: 'json',
+                    nojsoncallback: 1,
+                    per_page: this.perPage,
+                    extras: `description,date_upload,owner_name`,
+                    text: encodeURIComponent(this.searchText)
+                }
+            }    
+            return _http(searchOptions)
+                .then((res) => {
+                    console.log(res.data);
+                    this.imageJSON = res.data;
+                    this.pending = false;
+                    this.page = this.imageJSON.photos.page;
+                    this.totalPages = this.imageJSON.photos.pages;
+
+                })
+
         }
 
         /**
@@ -55,7 +97,6 @@
             this.mainImage = image;
             this.bounceOutDown = null;
             this.bounceInUp = true
-            console.log(image.title);
             this.getImageSizes();
             this.singleImage = { 
                 display: 'block'
@@ -116,16 +157,13 @@
         changePage () {
             this.pending = true;
             this.imageJSON = [];
-            options.params.per_page = this.perPage;
-            options.params.page = this.page;
-            _http(options)
-                .then((res) => {
-                    this.imageJSON = res.data;
-                    this.pending = false;
-                    this.page = this.imageJSON.photos.page;
-                    this.totalPages = this.imageJSON.photos.pages;
+            console.log(this.searchText);
+            if (this.searchText === '') {
+                this.getAll();
+            } else {
+                this.searchImage();
+            }
 
-                })
         }
 
         /**

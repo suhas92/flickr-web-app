@@ -20,40 +20,57 @@
         <div class="loader" data-ng-show="ctrl.pending">
             <img id="loader" src="images/triangle.gif"></img>
         </div>
-        <div class="image-block animated fadeIn"
+        <div class="col-3 image-block animated fadeIn"
             data-ng-repeat="image in photos=(ctrl.imageJSON.photos.photo | filter: {title: ctrl.getText})"
             layout="column"
             layout-align="end center"
             data-ng-click="ctrl.openImage(image)">
-            
             <div class="image-content">
                 {{ image.title }}
             </div>
+            <span class="date" am-time-ago="image.dateupload | amFromUnix"></span>
             <div class="image" id="inner">
                 <img src="https://farm{{ image.farm }}.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg"></img>
             </div>
         </div>
     </div>
 
-    <div class="noImages" data-ng-show="!photos.length && !ctrl.pending">
-        No Images with the title <span class="highlighted">{{ ctrl.getText }}</span> on this page
+    <div class="noImages" ng-style="{'color': 'red'}"data-ng-show="!photos.length && !ctrl.pending">
+        Oops! No images having <span class="highlighted">{{ ctrl.searchText }}</span> in title or in description.
     </div>
 
     <div class="single-image animated" data-ng-class="{bounceInUp: ctrl.bounceInUp, bounceOutDown: ctrl.bounceOutDown}" ng-style="ctrl.singleImage">
         <div class="close-container" data-ng-click="ctrl.closeImage()">X</div>
 
         <div class="main-image">
-            <div class="image-content">{{ ctrl.mainImage.title }}</div>
+            <div class="main-image-content">{{ ctrl.mainImage.title }}</div>
 
             <img src="https://farm{{ ctrl.mainImage.farm }}.staticflickr.com/{{ctrl.mainImage.server}}/{{ctrl.mainImage.id}}_{{ctrl.mainImage.secret}}.jpg"></img>
             <div class="image-info">
+                <span>{{ image.description._content }}</span>
                 <div class="sizes" data-ng-repeat="size in ctrl.mainImageInfo.sizes.size">
                     <div><em>Label:&nbsp;</em>{{ size.label }}</div>
                     <div><em>Dimensions:&nbsp;</em>{{ size.height }}&nbsp;X&nbsp;{{ size.height }}</div>
                     <div><em>Source:&nbsp;</em><a href="{{ size.url }}" target="_blank">{{ size.url }}</a></div>
-                    <a href="{{ size.source }}" download target="_blank"><em>Download</em></a>
+                    <a href="{{ size.source }}" download target="_blank"><b>Download</b></a>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="perPage" ng-show="!ctrl.pending">
+        Images Per Page
+        <select data-ng-model="ctrl.perPage" data-ng-change="ctrl.changePage()">
+            <option value="10" selected="selected">10</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="500">500</option>
+        </select>
+        Page {{ ctrl.page }} of {{ ctrl.totalPages }} Pages
+        <div class="nav-btns">
+            <input type="button" data-ng-click="ctrl.firstPage()" data-ng-if="ctrl.page !== 1" value="<<"></input>
+            <input type="button" data-ng-click="ctrl.prevPage()" data-ng-if="ctrl.page !== 1" value="<"></input>
+            <input type="button" data-ng-click="ctrl.nextPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">"></input>
+            <input type="button" data-ng-click="ctrl.lastPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">>"></input>
         </div>
     </div>
 </div>

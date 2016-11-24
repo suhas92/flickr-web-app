@@ -2,12 +2,14 @@ import httpClient from '../http.js';
 
 let _imageUrl = new WeakMap();
 let _infoUrl = new WeakMap();
+let _searchUrl = new WeakMap();
 let _params = new WeakMap();
 
 class Route {
     constructor () {
         _imageUrl = process.env.IMAGE_PATH;
         _infoUrl = process.env.INFO_PATH;
+        _searchUrl = process.env.SEARCH_PATH;
         _params = {
             api_key: process.env.API_KEY,
             user_id: process.env.USER_ID
@@ -33,11 +35,29 @@ class Route {
     }
 
     /**
+     * Search Images.
+     * @param  {Object} [req]
+     * @param  {Object} [res]
+     * @return {Promise}
+     */
+    searchImages (req, res) {
+        const httpOptions = {
+            baseUrl: _searchUrl,
+            method: 'GET',
+            params: Object.assign(req.query, _params)
+        };
+
+        return httpClient(httpOptions, null, res)
+            .then((data) => res.send(data))
+            .catch((err) => res.status(500).send('Something broke!', err));
+
+    }
+
+    /**
      * Get Image Info.
      * @param  {Object} [req]
      * @param  {Object} [res]
      * @return {Promise}
-
      */
     getImageSizes (req, res) {
         const httpOptions = {

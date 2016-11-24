@@ -74,6 +74,7 @@
                     format: 'json',
                     nojsoncallback: 1,
                     per_page: this.perPage,
+                    page: this.page,
                     extras: `description,date_upload,owner_name`,
                     text: encodeURIComponent(this.searchText)
                 }

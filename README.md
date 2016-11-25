@@ -12,14 +12,14 @@ Clone the directory
 git clone https://github.com/suhas92/flickr-web-app.git <<your-directory-name>>
 ```
 ### Step 2
-Install the dependencies
-```
-npm install
-```
-### Step 3
 Go to the directory
 ```
 cd <<your-directory-name>>
+```
+### Step 3
+Install the dependencies
+```
+npm install
 ```
 ### Step 4
 Run the app

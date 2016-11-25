@@ -20,9 +20,11 @@ a {
     font-family: sans-serif;
     font-weight: 100;
 }
+
 a:hover {
     color: #0063DC;
 }
+
 body { 
     background-color: white; 
     padding: 20px;
@@ -33,6 +35,22 @@ body {
     height: auto;
     font-weight: 100;
     font-family: sans-serif;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }
 
 input[type=button] {
@@ -49,6 +67,10 @@ input[type=button]:disabled {
 
 .pad-top-m {
     padding-top: 1%;
+}
+
+.margin-top {
+    margin-top: 15px;
 }
 
 .nav{
@@ -295,11 +317,6 @@ span.date {
       .image-block {
           width: 44%;
       }
-
-    .main-image .image-info {
-        float: none;
-    }
-
 }
 
 @media only screen and (max-device-width: 768px) {
@@ -343,6 +360,8 @@ span.date {
     .main-image .image-info {
         float: none;
         font-size: 0.8em;
+        width: inherit;
+        padding: 5% 0px;
     }
 
     .main-image img {
@@ -359,7 +378,7 @@ span.date {
 
     .main-image-content {
         font-size: 1.4em;
-        height: 30px;
+        height: auto;
     }
 
 }

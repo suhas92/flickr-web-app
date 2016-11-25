@@ -20,7 +20,6 @@
             this.sort = 'relevance';
 
             this.$onChanges = function (changesObj) {
-                console.log(changesObj)
                 this.pending = true;
                 this.page = 1;
                 if (changesObj.searchText.currentValue) {
@@ -30,7 +29,6 @@
                     this.getAll();
                 }
             };
-
         }
 
         /**
@@ -86,7 +84,6 @@
             if (searchOptions.params.text === 'undefined') {
                 delete searchOptions.params.text;
             }    
-            console.log(searchOptions);
             return _http(searchOptions)
                 .then((res) => {
                     this.imageJSON = res.data;
@@ -96,7 +93,6 @@
                     this.totalPages = this.imageJSON.photos.pages;
 
                 })
-
         }
 
         /**
@@ -167,7 +163,6 @@
         changePage () {
             this.pending = true;
             this.imageJSON = [];
-            console.log(this.searchText);
             this.searchImage();
         }
 
@@ -188,8 +183,7 @@
                 .then((res) => {
                     this.mainImageInfo = res.data;
                 })
-            
         }
-    }   
+    }
 });
 })();

@@ -55,6 +55,9 @@
             <img src="https://farm{{ ctrl.mainImage.farm }}.staticflickr.com/{{ctrl.mainImage.server}}/{{ctrl.mainImage.id}}_{{ctrl.mainImage.secret}}.jpg"></img>
             <div class="image-info">
                 {{ ctrl.mainImage.description._content }}
+                <div ng-style="{'color': 'red'}" data-ng-if="!ctrl.mainImage.description._content">
+                    No description available
+                </div>
                 <table class="margin-top">
                     <tr>
                         <th>Label</th>
@@ -67,9 +70,6 @@
                         <td><a href="{{ size.source }}" download target="_blank"><b>Download</b></a></td>
                     </tr>
                 </table>
-                <div ng-style="{'color': 'red'}" data-ng-if="!ctrl.mainImage.description._content">
-                    No description available
-                </div>
             </div>
         </div>
     </div>

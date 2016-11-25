@@ -17,6 +17,7 @@
             _http = $http;
             this.perPage = '10';
             this.page = '1';
+            this.sort = 'relevance';
 
             this.$onChanges = function (changesObj) {
                 console.log(changesObj)
@@ -77,13 +78,18 @@
                     nojsoncallback: 1,
                     per_page: this.perPage,
                     page: this.page,
+                    sort: this.sort,
                     extras: `description,date_upload,owner_name`,
                     text: encodeURIComponent(this.searchText)
                 }
+            }
+            // This is for a specific case when the search text is '' and sort is defined
+            if (searchOptions.params.text === 'undefined') {
+                delete searchOptions.params.text;
             }    
+            console.log(searchOptions);
             return _http(searchOptions)
                 .then((res) => {
-                    console.log(res.data);
                     this.imageJSON = res.data;
                     this.pending = false;
                     this.totalImages = this.imageJSON.photos.total;
@@ -162,12 +168,7 @@
             this.pending = true;
             this.imageJSON = [];
             console.log(this.searchText);
-            if (this.searchText === '' || this.searchText === undefined) {
-                this.getAll();
-            } else {
-                this.searchImage();
-            }
-
+            this.searchImage();
         }
 
         /**

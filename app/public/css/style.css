@@ -47,6 +47,10 @@ input[type=button]:disabled {
     color: #0063DC;
 }
 
+.pad-top-m {
+    padding-top: 1%;
+}
+
 .nav{
     top: 0;
     max-height: 80px;
@@ -75,7 +79,7 @@ input[type=button]:disabled {
 
 .nav img {
     margin: 10px 0px 10px 6%;
-    max-width: 10%;
+    max-width: 7%;
     width: auto;
     height: auto;
 }
@@ -94,6 +98,7 @@ input[type=button]:disabled {
     margin: 80px;
     margin-bottom: 0px;
     padding: 20px 0px;
+    font-size: 0.8em;
 }
 
 .perPage .nav-btns {
@@ -126,7 +131,7 @@ input[type=button]:disabled {
 .single-image {
     top: 0;
     width: 100%;
-    background-color: #dcdcdc;
+    background-color: white;
     z-index: 999999;
     height: 100%;
     position: fixed;
@@ -156,10 +161,10 @@ input[type=button]:disabled {
     font-size: small;
 }
 .main-image img {
-    margin: auto;
     clear: both;
-    width: auto;
+    width: 48%;
     height: auto;
+    margin-right: 1px;
 }
 
 .main-image + div {
@@ -247,7 +252,7 @@ input[type=button]:disabled {
 }
 
 .image-content {
-    width: 50%;
+    width: 60%;
     text-align: center;
     display: inline-block;
     font-family: sans-serif;
@@ -255,8 +260,18 @@ input[type=button]:disabled {
     overflow: hidden;
     font-weight: 100;
     border-radius: 40px;
-    padding: 3px 0px;
+    padding: 3px;
     background: aliceblue;
+}
+
+.main-image-content {
+    height: 50px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: normal;
+    font-size: 2em;
+    margin: 18px;
+    color: #8e8e8e;
 }
 
 span.date {
@@ -340,7 +355,12 @@ span.date {
         margin: 0 5%;
         margin-top: 12%;
         margin-bottom: 7px;
-        }
+    }
+
+    .main-image-content {
+        font-size: 1.4em;
+        height: 30px;
+    }
 
 }
 

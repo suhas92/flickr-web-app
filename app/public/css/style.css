@@ -5,12 +5,12 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
 * {
     box-sizing: border-box;
 }
 
-div
-{    
+div {    
     transition: all 0.5s ease;
 }
 
@@ -73,7 +73,7 @@ input[type=button]:disabled {
     margin-top: 15px;
 }
 
-.nav{
+.nav {
     top: 0;
     max-height: 80px;
     height: auto;
@@ -85,7 +85,7 @@ input[type=button]:disabled {
     transition: top 0.4s ease-in-out;
 }
 
-.nav input[type=text]{
+.nav input[type=text] {
     background-color: rgba(0, 0, 0, 0);
     border: none;
     border-bottom: 1px solid #FC329B;
@@ -94,7 +94,7 @@ input[type=button]:disabled {
     font-size: 20px;
     font-weight: 100;
     border-image: repeating-linear-gradient( 45deg, #FC329B, #FC329B 1%, #0063DC 1%, #0063DC 8%) 10;
-    }
+}
 
 .nav img {
     margin: 10px 0px 10px 6%;
@@ -127,6 +127,7 @@ input[type=button]:disabled {
 .perPage select {
     margin-right: 20px;
 }
+
 .allimages {
     display: inline;
     width: 100%;
@@ -172,6 +173,7 @@ input[type=button]:disabled {
     color: #0063DC;
     font-weight: 100;
 }
+
 .main-image {
     overflow-y: scroll;
     height: 100%;
@@ -179,6 +181,7 @@ input[type=button]:disabled {
     vertical-align: middle;
     font-size: small;
 }
+
 .main-image img {
     clear: both;
     width: 48%;
@@ -210,6 +213,7 @@ input[type=button]:disabled {
     display: block;
     float: right;
 }
+
 .image-block {
     background-color: white;
     color: #8e8e8e;
@@ -239,7 +243,6 @@ input[type=button]:disabled {
 .image-block:hover .image-content {
      color: #4C91E6;
     font-weight: normal;
-
 }
 
 .image-block .image-label {
@@ -249,7 +252,7 @@ input[type=button]:disabled {
 .image-block:hover {
     -webkit-transform: scale(1.1);
         -ms-transform: scale(1.1);
-        transform: scale(1.1);
+            transform: scale(1.1);
 }
 
 .image-block:hover .image-label {
@@ -305,14 +308,13 @@ span.date {
     border-radius: 20px;
     color: white;
     font-size: xx-small;
-    }
+}
 
 .highlighted {
     color: #0063DC;
 }
 
 @media screen and (max-device-width: 1024px) {
-
       .image-block {
           width: 44%;
       }
@@ -322,13 +324,14 @@ span.date {
     [class*="col-"] {
         width: 100%;
     }
+
     .image-content {
         font-size: 0.8em;
     }
+
     span.date {
         font-size: 0.6em;
     }
-
 
     .image-block {
         width: 90%;
@@ -379,7 +382,6 @@ span.date {
         font-size: 1.4em;
         height: auto;
     }
-
 }
 
 @media screen and (max-device-width: 2560px) {
@@ -387,5 +389,4 @@ span.date {
         margin: auto;
         width: 100%;
     }
-
 }

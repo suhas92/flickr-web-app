@@ -6,7 +6,6 @@ function model(app) {
 
   app.route('/getImages').get(Route.getImages);
   app.route('/getImages/searchText').get(Route.searchImages);
-  
   app.route('/getImageSizes').get(Route.getImageSizes);
 
 }

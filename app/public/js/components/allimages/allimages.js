@@ -5,7 +5,7 @@
   let options = new WeakMap();
 
   app.component('allImages', {
-    // Load the template
+    // Loads the template
     templateUrl: '/js/components/allimages/allimages.html',
     controllerAs: 'ctrl',
     bindings: {
@@ -13,7 +13,7 @@
       onChange: '&'
     },
     controller: class AllImagesComponent {
-        constructor ($scope, $http) {
+        constructor ($http) {
             _http = $http;
             this.perPage = '10';
             this.page = '1';
@@ -64,9 +64,8 @@
         }
 
         /**
-         * Search Image
+         * Search Images with a search text
          */
-
         searchImage () {
             this.imageJSON = [];
             this.pending = true;
@@ -112,6 +111,7 @@
                 display: 'block'
             };
         }
+
         /**
          * Closes the Single Image View
          */
@@ -130,7 +130,7 @@
         }
 
         /**
-         * 
+         * Takes to the next page
          */
         nextPage () {
             this.page++;
@@ -138,7 +138,7 @@
         }
 
         /**
-         * 
+         * Takes to the previous page
          */
         prevPage () {
             this.page--;
@@ -146,7 +146,7 @@
         }
 
         /**
-         * 
+         * Takes to the first page
          */
         firstPage () {
             this.page = 1;
@@ -154,7 +154,7 @@
         }
 
         /**
-         * 
+         * Takes to the last page
          */
         lastPage () {
             this.page = this.totalPages;
@@ -162,7 +162,7 @@
         }
 
         /**
-         * 
+         * Changes/Reloads the page with new properties if any
          */
         changePage () {
             this.pending = true;
@@ -172,7 +172,7 @@
         }
 
         /**
-         * 
+         * Returns the different image sizes and their download links
          */
         getImageSizes () {
             let infoOptions = {

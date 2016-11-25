@@ -2,9 +2,10 @@
 
     <img class="logo" src="images/logo.png"></img>
     <form ng-submit="$ctrl.searchChange($ctrl.searchText)">
-        <input type="text" placeholder="Search..." data-ng-model="$ctrl.searchText"></input>
+        <input type="text" placeholder="Search..." data-ng-model="$ctrl.searchText"/>
         <input ng-hide="{true}"type="submit" value="search"/>
-            <div class="clear-search" data-ng-click="$ctrl.searchChange('')" data-ng-if="$ctrl.searchText">X</div>
-
+            <div class="clear-search" data-ng-click="$ctrl.searchChange('')" data-ng-if="$ctrl.searchText">
+                X
+            </div>
     </form>
 </header>

@@ -24,7 +24,8 @@ a:hover {
     color: #0063DC;
 }
 body { 
-    background-color: white; padding: 20px;
+    background-color: white; 
+    padding: 20px;
     top:0;
     left:0;
     margin: 0;
@@ -32,6 +33,18 @@ body {
     height: auto;
     font-weight: 100;
     font-family: sans-serif;
+}
+
+input[type=button] {
+    background-color: #0063DC;
+    border: none;
+    border-radius: 10px;
+    color: white;
+}
+
+input[type=button]:disabled {
+    background-color: white;
+    color: #0063DC;
 }
 
 .nav{
@@ -92,7 +105,7 @@ background-color: rgba(0, 0, 0, 0);
 }
 .allimages {
     display: inline;
-    width: auto;
+    width: 100%;
     float: left;
     padding-left: 5%;
 }
@@ -233,22 +246,29 @@ background-color: rgba(0, 0, 0, 0);
 }
 
 .image-content {
-    margin-top: 5%;
+    width: 68%;
     text-align: center;
+    display: inline-block;
     font-family: sans-serif;
-    font-size: 1em;
+    font-size: 0.8em;
+    overflow: hidden;
     font-weight: 100;
+    border-radius: 40px;
+    padding: 3px 0px;
+    background: aliceblue;
 }
 
 span.date {
-    padding: 3px;
-    margin: auto;
-    margin-bottom: 3px;
-    display: inline-block;
-    background-color: antiquewhite;
-    font-weight: bold;
+    padding: 5px;
+    width: 25%;
+    display: inline;
+    text-align: center;
+    background-color: #0063db;
+    font-weight: 100;
     float: right;
-    border-radius: 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: xx-small;
     }
 
 .highlighted {
@@ -272,7 +292,7 @@ span.date {
         width: 100%;
     }
     .image-content {
-        font-size: 0.6em;
+        font-size: 1.2em;
     }
     span.date {
         font-size: 0.6em;

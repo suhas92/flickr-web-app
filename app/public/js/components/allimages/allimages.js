@@ -21,6 +21,7 @@
             this.$onChanges = function (changesObj) {
                 console.log(changesObj)
                 this.pending = true;
+                this.page = 1;
                 if (changesObj.searchText.currentValue) {
                     this.searchText = changesObj.searchText.currentValue;
                     this.searchImage();
@@ -52,6 +53,7 @@
                 .then((res) => {
                     this.pending = false;
                     this.imageJSON = res.data;
+                    this.totalImages = this.imageJSON.photos.total;
                     this.page = this.imageJSON.photos.page;
                     this.totalPages = this.imageJSON.photos.pages;
                 })
@@ -84,6 +86,7 @@
                     console.log(res.data);
                     this.imageJSON = res.data;
                     this.pending = false;
+                    this.totalImages = this.imageJSON.photos.total;
                     this.page = this.imageJSON.photos.page;
                     this.totalPages = this.imageJSON.photos.pages;
 
@@ -159,7 +162,7 @@
             this.pending = true;
             this.imageJSON = [];
             console.log(this.searchText);
-            if (this.searchText === '') {
+            if (this.searchText === '' || this.searchText === undefined) {
                 this.getAll();
             } else {
                 this.searchImage();

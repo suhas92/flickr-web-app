@@ -7,12 +7,12 @@
             <option value="100">100</option>
             <option value="500">500</option>
         </select>
-        Page {{ ctrl.page }} of {{ ctrl.totalPages }} Pages
+        Page {{ ctrl.page }} of {{ ctrl.totalPages }} Pages&nbsp;&nbsp;&nbsp; Total Images - {{ ctrl.totalImages }}
         <div class="nav-btns">
-            <input type="button" data-ng-click="ctrl.firstPage()" data-ng-if="ctrl.page !== 1" value="<<"></input>
-            <input type="button" data-ng-click="ctrl.prevPage()" data-ng-if="ctrl.page !== 1" value="<"></input>
-            <input type="button" data-ng-click="ctrl.nextPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">"></input>
-            <input type="button" data-ng-click="ctrl.lastPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">>"></input>
+            <input type="button" data-ng-click="ctrl.firstPage()" data-ng-disabled="ctrl.page === 1" value="<<"></input>
+            <input type="button" data-ng-click="ctrl.prevPage()" data-ng-disabled="ctrl.page === 1" value="<"></input>
+            <input type="button" data-ng-click="ctrl.nextPage()" data-ng-disabled="ctrl.page === ctrl.totalPages" value=">"></input>
+            <input type="button" data-ng-click="ctrl.lastPage()" data-ng-disabled="ctrl.page === ctrl.totalPages" value=">>"></input>
         </div>
     </div>
 
@@ -55,22 +55,6 @@
                     <a href="{{ size.source }}" download target="_blank"><b>Download</b></a>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="perPage" ng-show="!ctrl.pending">
-        Images Per Page
-        <select data-ng-model="ctrl.perPage" data-ng-change="ctrl.changePage()">
-            <option value="10" selected="selected">10</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="500">500</option>
-        </select>
-        Page {{ ctrl.page }} of {{ ctrl.totalPages }} Pages
-        <div class="nav-btns">
-            <input type="button" data-ng-click="ctrl.firstPage()" data-ng-if="ctrl.page !== 1" value="<<"></input>
-            <input type="button" data-ng-click="ctrl.prevPage()" data-ng-if="ctrl.page !== 1" value="<"></input>
-            <input type="button" data-ng-click="ctrl.nextPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">"></input>
-            <input type="button" data-ng-click="ctrl.lastPage()" data-ng-if="ctrl.page !== ctrl.totalPages" value=">>"></input>
         </div>
     </div>
 </div>

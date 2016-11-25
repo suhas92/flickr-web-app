@@ -17,9 +17,15 @@ Install the dependencies
 npm install
 ```
 ### Step 3
+Go to the directory
+```
+cd <<your-directory-name>>
+```
+### Step 4
 Run the app
 ```
 npm start
 ```
-
+**Note:** The app is running default on port `8081`.
+Go to `localhost:8081` in any browser.
 ## [Demo](https://flickr-web-app.herokuapp.com/)
